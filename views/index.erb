@@ -11,63 +11,28 @@
       <div class="status-box">
         <ol>
           <li class="upstream">
-            <span class="<%= status_of("main :: build") %>">Core</span>
-            <span class="details"><%= @status.buildLabel %>                
-            <span class="commit_message"><%= commit_message("main :: build") %>                
-  	      </li>
-          <li class="upstream">
-            <span class="<%= status_of("aim :: build") %>">Aim</span>      
+            <span class="<%= status_of("core :: build") %>">core</span>      
             <span class="details"><%= @status.buildLabel %>                            
-  	        <span class="commit_message"><%= commit_message("aim :: build") %>                
+  	        <span class="commit_message"><%= commit_message("core :: build") %>                
+          </li>  
+          <li class="upstream">
+            <span class="<%= status_of("core-marklogic :: integration_functional_tests") %>">core-marklogic</span>      
+            <span class="details"><%= @status.buildLabel %>                            
+            <span class="commit_message"><%= commit_message("core-marklogic :: integration_functional_tests") %>                
           </li>  
         </ol>
-      </div>    
-      <div class="status-box">
         <ol>
-          <li>
-            <span class="env <%= status_of("casper :: deploy-to-dev") %>">DEV</span>
-            <span class="details"><%= @status.buildLabel %>        
-          </li>
-          <li>
-            <span class="env <%= status_of("casper :: system-tests") %>">Tests</span>
-            <span class="details"><%= @status.buildLabel %>        
-          </li>
-          <li>
-            <span class="env <%= status_of("casper :: deploy-to-qa") %>">QA</span>
-            <span class="details"><%= @status.buildLabel %>        
-          </li>
-          <li>
-            <span class="env <%= status_of("casper :: deploy-to-perf") %>">PERF</span>      
-            <span class="details"><%= @status.buildLabel %>        
-          </li>
+          <li class="upstream">
+            <span class="<%= status_of("marklogic :: build") %>">marklogic</span>      
+            <span class="details"><%= @status.buildLabel %>                            
+            <span class="commit_message"><%= commit_message("marklogic :: build") %>                
+          </li>  
+          <li class="upstream">
+            <span class="<%= status_of("casper-commons :: build") %>">casper-commons</span>      
+            <span class="details"><%= @status.buildLabel %>                            
+            <span class="commit_message"><%= commit_message("casper-commons :: build") %>                
+          </li>  
         </ol>
-      </div>    
-      <div class="status-box">
-        <ol>
-          <li>
-            <span class="<%= status_of("identity :: build") %>">Identity</span>      
-            <span class="details"><%= @status.buildLabel %>                
-          </li>
-          <li>        
-            <span class="env <%= status_of("identity :: deploy-to-dev") %>">DEV</span>
-            <span class="details"><%= @status.buildLabel %>                    
-          </li>
-          <li>
-            <span class="env <%= status_of("identity :: deploy-to-qa") %>">QA</span>
-            <span class="details"><%= @status.buildLabel %>        
-          </li>
-          <li>
-            <span class="env <%= status_of("identity :: deploy-to-perf") %>">PERF</span>      
-            <span class="details"><%= @status.buildLabel %>        
-          </li>
-        </ol>
-      </div>
-      <div class="status-box small">
-        <span class="small <%= status_of("jmeter-perf-test :: start-jmeter-remote") %>">Perf Tests</span>
-      </div>    
-      <div class="status-box small">
-        <span class="small <%= status_of("sig :: send-source-to-sig") %>">SIG</span>                        
-      </div>    
     </div>
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>

@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'sinatra' 
 
-SERVER_URL = 'http://172.18.20.31:8153/go/cctray.xml'
+SERVER_URL = 'http://ci.tools.springer-sbm.com:8153/go/cctray.xml'
 
 get '/' do
   @doc = Nokogiri::XML(open(SERVER_URL))
@@ -12,6 +12,7 @@ end
 helpers do
   def status_of(project)
     @status = Status.new(@doc.xpath("//Project[@name='#{project}']").first)
+    puts @status.to_s
     erb 'status <%= if @status.success? then "success" else "failure" end %><%= " building" if @status.building? %>'
   end
   
