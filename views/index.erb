@@ -19,9 +19,17 @@
             <span class="<%= status_of("core-marklogic :: integration_functional_tests") %>">core-marklogic</span>      
             <span class="details"><%= @status.buildLabel %>                            
             <span class="commit_message"><%= commit_message("core-marklogic :: integration_functional_tests") %>                
+          </li> 
+          <li class="upstream">
+            <span class="<%= status_of("dev-system-tests :: new-system-tests") %>">new-system-tests</span>      
+            <span class="details"><%= @status.buildLabel %>                            
+            <span class="commit_message"><%= commit_message("dev-system-tests :: new-system-tests") %>                
           </li>  
-        </ol>
-        <ol>
+          <li class="upstream">
+            <span class="<%= status_of("dev-system-tests :: system-tests") %>">system-tests</span>      
+            <span class="details"><%= @status.buildLabel %>                            
+            <span class="commit_message"><%= commit_message("dev-system-tests :: system-tests") %>                
+          </li>  
           <li class="upstream">
             <span class="<%= status_of("marklogic :: build") %>">marklogic</span>      
             <span class="details"><%= @status.buildLabel %>                            
