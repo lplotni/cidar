@@ -10,9 +10,15 @@ get '/' do
 end
 
 helpers do
+
+  def labelFor(project)
+    @label =  project.split[0]
+    @status = Status.new(@doc.xpath("//Project[@name='#{project}']").first)
+    erb '<%= if @status.success? then "" else "!" end %> <%= @label %> <%= if @status.success? then "" else "!" end %>'
+  end
+
   def status_of(project)
     @status = Status.new(@doc.xpath("//Project[@name='#{project}']").first)
-    puts @status.to_s
     erb 'status <%= if @status.success? then "success" else "failure" end %><%= " building" if @status.building? %>'
   end
   

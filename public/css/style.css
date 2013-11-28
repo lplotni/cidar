@@ -11,32 +11,13 @@ body {
   width: 100%;    
 }
 
-.status-box {
-  border-bottom: 4px dotted #333333;  
-}
-
-.status-box + .small {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.status-box ol {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.status-box li {
-  display: inline-block;
-}
-
 .upstream {
-  width: 48%;
+  width: 99%;
 }
 
-.status-box .details {
+.details {
   display: block;
-  padding-left: 25px;
+  padding-left: 35px;
 }
 
 .status {
@@ -86,4 +67,5 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;	
+  padding-left: 35px; 
 }

@@ -8,40 +8,34 @@
   </head>
   <body>
     <div id="container">
-      <div class="status-box">
-        <ol>
           <li class="upstream">
-            <span class="<%= status_of("core :: build") %>">core</span>      
-            <span class="details"><%= @status.buildLabel %>                            
-  	        <span class="commit_message"><%= commit_message("core :: build") %>                
+            <div class="<%= status_of("core :: build") %>">
+            <%= labelFor("core :: build") %>
+            </div>      
+            <div class="details"><%= @status.buildLabel %></div>                            
+  	        <div class="commit_message"><%= commit_message("core :: build") %></div>              
           </li>  
           <li class="upstream">
-            <span class="<%= status_of("core-marklogic :: integration_functional_tests") %>">core-marklogic</span>      
-            <span class="details"><%= @status.buildLabel %>                            
-            <span class="commit_message"><%= commit_message("core-marklogic :: integration_functional_tests") %>                
+            <div class="<%= status_of("core-marklogic :: integration_functional_tests") %>">
+            <%= labelFor("core-marklogic :: integration_functional_tests") %>
+            </div>      
+            <div class="details"><%= @status.buildLabel %></div>                        
+            <div class="commit_message"><%= commit_message("core-marklogic :: integration_functional_tests") %></div>                
           </li> 
           <li class="upstream">
-            <span class="<%= status_of("dev-system-tests :: new-system-tests") %>">new-system-tests</span>      
-            <span class="details"><%= @status.buildLabel %>                            
-            <span class="commit_message"><%= commit_message("dev-system-tests :: new-system-tests") %>                
-          </li>  
+            <div class="<%= status_of("dev-system-tests :: new-system-tests") %>">
+            <%= labelFor("dev-system-tests :: new-system-tests") %>
+            </div>      
+            <div class="details"><%= @status.buildLabel %></div>                            
+            <div class="commit_message"><%= commit_message("dev-system-tests :: new-system-tests") %></div>                
+          </li> 
           <li class="upstream">
-            <span class="<%= status_of("dev-system-tests :: system-tests") %>">system-tests</span>      
-            <span class="details"><%= @status.buildLabel %>                            
-            <span class="commit_message"><%= commit_message("dev-system-tests :: system-tests") %>                
-          </li>  
-          <li class="upstream">
-            <span class="<%= status_of("marklogic :: build") %>">marklogic</span>      
-            <span class="details"><%= @status.buildLabel %>                            
-            <span class="commit_message"><%= commit_message("marklogic :: build") %>                
-          </li>  
-          <li class="upstream">
-            <span class="<%= status_of("casper-commons :: build") %>">casper-commons</span>      
-            <span class="details"><%= @status.buildLabel %>                            
-            <span class="commit_message"><%= commit_message("casper-commons :: build") %>                
-          </li>  
-        </ol>
-      </div>
+            <div class="<%= status_of("marklogic :: build") %>">
+            <%= labelFor("marklogic :: build") %>
+            </div>       
+            <div class="details"><%= @status.buildLabel %></div>                             
+            <div class="commit_message"><%= commit_message("marklogic :: build") %></div>                 
+          </li>
     <div>
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
