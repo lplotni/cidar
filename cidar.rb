@@ -12,7 +12,7 @@ end
 helpers do
 
   def labelFor(project)
-    @label =  project.split[0]
+    @label =  project.split[0] +" ["+ project.split[2]+"]"
     @status = Status.new(@doc.xpath("//Project[@name='#{project}']").first)
     erb '<%= if @status.success? then "" else "!" end %> <%= @label %> <%= if @status.success? then "" else "!" end %>'
   end
