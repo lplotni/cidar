@@ -30,6 +30,13 @@
             <div class="commit_message"><%= commit_message("core-marklogic :: functional-tests") %></div>                
           </li> 
           <li class="upstream">
+            <div class="<%= status_of("dev-system-tests :: smoke-tests") %>">
+            <%= labelFor("dev-system-tests :: smoke-tests") %>
+            </div>      
+            <div class="details"><%= @status.buildLabel %></div>                            
+            <div class="commit_message"><%= commit_message("dev-system-tests :: smoke-tests") %></div>                
+          </li> 
+          <li class="upstream">
             <div class="<%= status_of("dev-system-tests :: new-system-tests") %>">
             <%= labelFor("dev-system-tests :: new-system-tests") %>
             </div>      
