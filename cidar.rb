@@ -2,17 +2,19 @@ require 'nokogiri'
 require 'open-uri'
 require 'sinatra' 
 
-SERVER_URL = 'http://ci.tools.springer-sbm.com:8153/go/cctray.xml'
+SERVER_URL = 'http://54.194.156.79:8153/go/cctray.xml'
+USER = "admin"
+PASS = "*****"
 
 get '/' do
-  @doc = Nokogiri::XML(open(SERVER_URL))
+  @doc = Nokogiri::XML(open(SERVER_URL, :http_basic_authentication=>[USER, PASS]))
   erb :index
 end
 
 helpers do
 
   def labelFor(project)
-    @label =  project.split[0] +" ["+ project.split[2]+"]"
+    @label =  project.split[4] +" ["+ project.split[2]+"]"
     @status = Status.new(@doc.xpath("//Project[@name='#{project}']").first)
     erb '<%= if @status.success? then "" else "!" end %> <%= @label %> <%= if @status.success? then "" else "!" end %>'
   end
@@ -30,7 +32,7 @@ helpers do
   
   private  
   def get_commit_message_from_url (url)
-    web_html = Nokogiri::HTML(open(url))
+    web_html = Nokogiri::HTML(open(url, :http_basic_authentication=>[USER, PASS]))
     comments = web_html.css(".comment dl dd")
     return (comments && comments.length > 0) ? comments.first.text : ""
   end
