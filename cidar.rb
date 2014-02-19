@@ -1,10 +1,11 @@
 require 'nokogiri'
 require 'open-uri'
-require 'sinatra' 
+require 'sinatra'
+require 'json'
 
 SERVER_URL = 'http://54.194.156.79:8153/go/cctray.xml'
 USER = "admin"
-PASS = "*****"
+PASS = "PASSWORD"
 
 get '/' do
   @doc = Nokogiri::XML(open(SERVER_URL, :http_basic_authentication=>[USER, PASS]))
@@ -33,8 +34,9 @@ helpers do
   private  
   def get_commit_message_from_url (url)
     web_html = Nokogiri::HTML(open(url, :http_basic_authentication=>[USER, PASS]))
-    comments = web_html.css(".comment dl dd")
-    return (comments && comments.length > 0) ? comments.first.text : ""
+    script = web_html.xpath("//script")[6].content
+    commitJson = JSON.parse(script.slice(22,script.length).rstrip.chop.chop)["modifications"][0]
+    return commitJson["comment"]+" by "+commitJson["user"]
   end
 end
 
