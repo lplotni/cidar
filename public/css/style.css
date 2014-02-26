@@ -11,32 +11,17 @@ body {
   width: 100%;    
 }
 
-.status-box {
-  border-bottom: 4px dotted #333333;  
-}
-
-.status-box + .small {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.status-box ol {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.status-box li {
-  display: inline-block;
-}
-
 .upstream {
-  width: 48%;
-  position: relative;
+  width: 99%;
+}
+
+.details {
+  display: block;
+  padding-left: 35px;
 }
 
 .status {
-  font-size: 125px;
+  font-size: 100px;
   font-weight: bold;
   letter-spacing: -2px;
   padding-left: 25px;
@@ -120,40 +105,12 @@ body {
   color: #F5B800;
 }
 
-#top-git .commiter.even {
-  color: #F5B800;
-}
-
-.people {
-  float: right;
-}
-
-.people img {
-  width: 150px;
-  height: 150px;
-  padding-left: 10px;
-}
-
-.stars { 
-	position: relative;
-	width: 91px;
-	height: 17px;
-	margin-left: 20px;
-}
-.stars .cover {
-	position: absolute;
-	background: transparent url(/images/no-stars.png) top left no-repeat;
-	top: 0px;
-	left: 0px;
-	width: 91px;
-	height: 17px;
-	z-index: 101;
-}
-.stars .progress {
-	position: absolute;
-	background: transparent url(/images/full-stars.png) top left no-repeat;
-	top: 0px;
-	left: 0px;
-	height: 17px;
-	z-index: 102;
+.commit_message {
+	display: block;
+	color: cyan;   
+  font-size: 30px;	
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;	
+  padding-left: 35px; 
 }

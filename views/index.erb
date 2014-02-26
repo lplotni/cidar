@@ -12,114 +12,16 @@
       <div class="commiters"></div>
     </div>
     <div id="container">
-      <div class="status-box">
-        <ol>
-          <li id="core" class="upstream">
-            <span class="<%= status_of('^(core :: build)|(core-marklogic :: integration_functional_tests)$') %>">Core</span>
-            <span class="people">
-              <% @status.commiters.each do |name| %>
-                <img src="/images/<%=name%>.jpg"/>
-              <% end %>
-            </span>
-            <span class="build"><%= @status.buildLabel %></span>
-            <span class="time"><%= @status.fastest_time('core') %></span>
-            <span class="commit-message"><%= @status.commit_message %></span>
+    	<% ["QEN :: build :: backend", "QEN :: build :: client", "QEN :: integration-test :: backend-integration", "QEN :: integration-test :: backend-functional", "QEN :: deploy :: backend", "QEN :: deploy :: client", "QEN :: smoke-test :: backend", "QEN :: functional-test :: both"].each do |name| %>	
+          <li class="upstream">
+            <div class="<%= status_of(name) %>">
+            <%= labelFor(name) %>
+            </div>      
+            <div class="details"><%= @status.buildLabel %></div>                            
+  	        <div class="commit_message"><%= commit_message(name) %></div>              
           </li>
-          <li id="aim" class="upstream">
-            <span class="<%= status_of('aim :: build') %>">Aim</span>
-            <span class="people">
-              <% @status.commiters.each do |name| %>
-                <img src="/images/<%=name%>.jpg"/>
-              <% end %>
-            </span>
-            <span class="build"><%= @status.buildLabel %></span>
-            <span class="time"><%= @status.fastest_time('aim') %></span>
-            <span class="commit-message"><%= @status.commit_message %></span>
-          </li>
-          <li id="identity" class="upstream">
-            <span class="<%= status_of('identity :: build') %>">Identity</span>
-            <span class="people">
-              <% @status.commiters.each do |name| %>
-                <img src="/images/<%=name%>.jpg"/>
-              <% end %>
-            </span>
-            <span class="build"><%= @status.buildLabel %></span>
-            <span class="time"><%= @status.fastest_time('identity') %></span>
-            <span class="commit-message"><%= @status.commit_message %></span>
-          </li>
-          <li id="track" class="upstream">
-            <span class="<%= status_of('^(track :: build)|(track-marklogic :: integration_functional_tests)$') %>">Track</span>
-            <span class="people">
-              <% @status.commiters.each do |name| %>
-                <img src="/images/<%=name%>.jpg"/>
-              <% end %>
-            </span>
-            <span class="build"><%= @status.buildLabel %></span>
-            <span class="time"><%= @status.fastest_time('track') %></span>
-            <span class="commit-message"><%= @status.commit_message %></span>
-          </li>
-          <li id="authentication" class="upstream">
-            <span class="<%= status_of('authentication :: build') %>">Authentication</span>
-            <span class="people">
-              <% @status.commiters.each do |name| %>
-                <img src="/images/<%=name%>.jpg"/>
-              <% end %>
-            </span>
-            <span class="build"><%= @status.buildLabel %></span>
-            <span class="commit-message"><%= @status.commit_message %></span>
-          </li>
-          <li id="mud" class="upstream">
-            <span class="<%= status_of('mud :: build') %>">MUD</span>
-            <span class="people">
-              <% @status.commiters.each do |name| %>
-                <img src="/images/<%=name%>.jpg"/>
-              <% end %>
-            </span>
-            <span class="build"><%= @status.buildLabel %></span>
-            <span class="commit-message"><%= @status.commit_message %></span>
-          </li>
-        </ol>
-      </div>
-      <div class="status-box">
-        <ol>
-          <li>
-            <span class="env <%= status_of('^dev-system-tests :: [\w-]*$') %>">DEV</span>
-            <span class="build"><%= @status.buildLabel %></span>
-          </li>
-          <li>
-            <span class="env <%= status_of('^deploy-devtest-mobile :: [\w-]*$') %>">DEV (Mobile)</span>
-            <span class="build"><%= @status.buildLabel %></span>
-          </li>
-          <li>
-            <span class="env <%= status_of('^qa :: [\w-]*$') %>">QA</span>
-            <span class="build"><%= @status.buildLabel %></span>
-          </li>
-          <li>
-            <span class="env <%= status_of('^qa1 :: [\w-]*$') %>">QA1</span>
-            <span class="build"><%= @status.buildLabel %></span>
-          </li>
-          <li>
-            <span class="env <%= status_of('^qa2 :: [\w-]*$') %>">QA2</span>
-            <span class="build"><%= @status.buildLabel %></span>
-          </li>
-          <li>
-            <span class="env <%= status_of('^live-a :: [\w-]*$') %>">LIVE-A</span>
-            <span class="build"><%= @status.buildLabel %></span>
-          </li>
-          <li>
-            <span class="env <%= status_of('^live-b :: [\w-]*$') %>">LIVE-B</span>
-            <span class="build"><%= @status.buildLabel %></span>
-          </li>
-        </ol>
-      </div>
-      <div class="status-box small">
-        <span class="small <%= status_of("sig :: send-source-to-sig") %>">SIG</span>
-        <div class="stars">
-          <div class="cover"></div>
-          <div class="progress" style="width: 84%;"></div>
-        </div>
-      </div>
-    </div>
+        <% end %>
+    <div>
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
